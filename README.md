@@ -12,11 +12,11 @@ A tiny Zepp OS game for the Amazfit T-Rex 3 Pro: a man sits by a campfire, and t
 
 - **Warmth (0–100)** is updated every second from the wear sensor (`Wear`) and the wrist temperature sensor (`BodyTemperature`):
   - On the wrist, warmth moves toward a target set by the wrist temperature:
-    - 28 °C or less: 25, a small fire.
+    - Below 28 °C: 0, the fire dies down to embers and the man freezes.
+    - 28 °C: 25, a small fire.
     - 34 °C or more: 100, a full fire.
     - In between: linear.
     - No reading: 100.
-  - So the man never freezes while the watch is worn.
   - Warming is +100 in ~30 s.
   - Off the wrist: −100 in ~1.5 min.
   - When the watch is unsure whether it is worn, warmth stays the same.

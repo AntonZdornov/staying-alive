@@ -30,8 +30,8 @@ const COOLING_PER_SEC = 100 / 90 // full fire to embers in ~1.5 min off the wris
 const SMALL_FIRE_FROM = 20
 const BIG_FIRE_FROM = 60
 
-// Wrist temperature to warmth target: a cold wrist still keeps a small fire, so the man
-// never freezes while the watch is worn; a warm wrist gives a full fire
+// Wrist temperature to warmth target: below WRIST_COLD_C the fire dies even on the wrist,
+// from there it grows from a small fire up to a full one at WRIST_WARM_C
 const WRIST_COLD_C = 28
 const WRIST_WARM_C = 34
 const WORN_MIN_WARMTH = SMALL_FIRE_FROM + 5
@@ -83,6 +83,7 @@ const clampWarmth = (value) => Math.max(0, Math.min(100, value))
 // Without a temperature reading the fire burns fully while worn
 function warmthTarget(tempC) {
   if (tempC === null) return 100
+  if (tempC < WRIST_COLD_C) return 0
   const t = Math.max(0, Math.min(1, (tempC - WRIST_COLD_C) / (WRIST_WARM_C - WRIST_COLD_C)))
   return WORN_MIN_WARMTH + t * (100 - WORN_MIN_WARMTH)
 }
