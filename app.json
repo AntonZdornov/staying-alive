@@ -1,0 +1,57 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 1133098,
+    "appName": "Staying Alive",
+    "appType": "app",
+    "version": {
+      "code": 2,
+      "name": "0.1.1"
+    },
+    "icon": "icon.png",
+    "vender": "huami",
+    "description": "Keep the campfire burning by wearing your watch"
+  },
+  "permissions": [
+    "device:os.local_storage",
+    "data:user.hd.heart_rate",
+    "data:user.hd.body_temp"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "3.6",
+      "target": "3.6",
+      "minVersion": "3.6"
+    }
+  },
+  "targets": {
+    "default": {
+      "module": {
+        "page": {
+          "pages": ["page/index", "page/debug"]
+        },
+        "app-side": {
+          "path": "app-side/index"
+        },
+        "setting": {
+          "path": "setting/index"
+        }
+      },
+      "platforms": [
+        {
+          "st": "r"
+        }
+      ],
+      "designWidth": 480
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "Staying Alive"
+    },
+    "ru-RU": {
+      "appName": "Костёр"
+    }
+  },
+  "defaultLanguage": "en-US"
+}
